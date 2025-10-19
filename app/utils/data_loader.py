@@ -1,4 +1,5 @@
 import pandas as pd
+from pathlib import Path
 
 def load_data():
     """
@@ -7,9 +8,11 @@ def load_data():
     Returns:
         pd.DataFrame: Dataset procesado
     """
+    DATA_PATH = Path(__file__).parent.parent.parent / "data" / "earthquake_data_tsunami.csv"
+
     # Cargar datos
-    df = pd.read_csv('C:\\Users\\u179376\\Documents\\GitHub\\Vulcans\\data\\earthquake_data_tsunami.csv')
-    
+    df = pd.read_csv(DATA_PATH)
+
     # Asegurar tipos de datos correctos
     numeric_columns = ['magnitude', 'depth', 'sig', 'nst', 'dmin', 'gap', 'cdi', 'mmi']
     for col in numeric_columns:
